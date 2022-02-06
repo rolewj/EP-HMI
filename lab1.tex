@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[left=3cm,right=1.5cm,top=1cm,bottom=2cm]{geometry}
+
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstset{
+language=C++,
+backgroundcolor=\color{backgroundColour},
+title=\lstname,
+basicstyle=\ttfamily\footnotesize,
+keywordstyle=\color{blue},
+stringstyle=\color{red},
+commentstyle=\color{green},
+numberstyle=\tiny,
+numbers=left,
+stepnumber=1,
+numbersep=5pt,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=single,
+tabsize=4,
+captionpos=t,
+breaklines=true,
+breakatwhitespace=false
+}
+
+
+\begin{document}
+
+
+\title{Стиль кода}
+\author{Автор: Ющенко Андрей Викторович, ИА-032,\\ email: yuschenko2002@gmail.com,\\ github: @rolewj}
+\date{Февраль 2022}
+
+\maketitle
+
+\section{C}
+Используется версия С17 \cite{C}.\vspace{5mm}
+
+\textbf{Инициализация переменных.} Ставятся пробелы до и после знака присваивания <<=>>.
+\begin{lstlisting}[caption=Инициализация переменных.]
+int x = 1;
+int y = 1;
+int b;
+\end{lstlisting}
+
+\textbf{Ввод и вывод данных.} Пробел ставится после запятой.
+\begin{lstlisting}[caption=Ввод и вывод данных.]
+scanf("%d", &n);
+printf("Fibonacci number: %d", y);
+\end{lstlisting}
+
+\textbf{Условный оператор if.} Ставятся пробелы после <<if>> и <<else>>, до и после знаков опираций, а также до фигурной скобки. В виде отступов используется табуляция (4 пробела).
+\begin{lstlisting}[caption=Условный оператор if.]
+if (b > 5) {
+    b = b + 5;
+}
+else {
+    b = b - 5;
+}
+\end{lstlisting}
+
+\textbf{Цикл for.} Использование стиля аналогично условному опреатору if.
+\begin{lstlisting}[caption=Цикл for.]
+for (int i = 2; i < n; i++) {
+    y = x + y;
+    x = y - x;
+}
+\end{lstlisting}
+
+\textbf{Реализация функции}, например, fibonacci.
+\begin{lstlisting}[caption=Реализация функции.]
+int fibonacci(int n) {
+    if (n == 1 || n == 2) {
+        return 1;
+    } 
+    else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+\end{lstlisting}
+
+\section{C++}
+Используется версия С++20 \cite{C++}.\vspace{5mm}
+
+Применяются стили написания, аналогично языку C. Поэтому следует описать ввод и вывод данных, а также классы, которые не используются в языке C.\par
+\textbf{Ввод и вывод данных.} Ставятся пробелы до и после операторов ввода и вывода.
+\begin{lstlisting}[caption=Ввод и вывод данных.]
+std::cout << "Enter a number: ";
+std::cin >> a;
+std::cout << "You entered " << a << std::endl;
+\end{lstlisting}
+
+\textbf{Классы.} Пробел ставится до фигурной скобки, табуляция~--- перед public/private и после них со следующей строки.
+\begin{lstlisting}[caption=Классы.]
+class Students {
+    public:
+        void set_name(std::string);
+        std::string get_name();
+        void set_last_name(std::string);
+        std::string get_last_name();
+        void set_scores(int []);
+        void set_average_grade(float);
+        float get_average_grade();
+
+    private:
+        int scores[5];
+        float average_grade;
+        std::string name;
+        std::string last_name;
+};
+\end{lstlisting}
+
+\begin{thebibliography}{}
+\bibitem{C}
+ISO/IEC 9899 Programming languages~--- C.
+\bibitem{C++}
+ISO/IEC 14882 Programming languages~--- C++.
+\end{thebibliography}
+
+\end{document}
