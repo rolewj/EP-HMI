@@ -22,9 +22,9 @@ def QPSK(data_array):
 def QAM16(data_array):
     if (len(data_array) % 4 != 0):
         print("QAM16:\nError, check data_array length")
-        return 0
+        raise "error"
     else:
-        di = [] # массив комплексных чисел
+        di = []
         for i in range(0, len(data_array), 4):
             b4i = data_array[i]
             b4i1 = data_array[i+1]
@@ -38,9 +38,9 @@ def QAM16(data_array):
 def QAM64(data_array):
     if (len(data_array) % 6 != 0):
         print("QAM64:\nError, check data_array length")
-        return 0
+        raise "error"
     else:
-        di = [] # массив комплексных чисел
+        di = []
         for i in range(0, len(data_array), 6):
             b6i = data_array[i]
             b6i1 = data_array[i+1]
@@ -56,9 +56,9 @@ def QAM64(data_array):
 def QAM256(data_array):
     if (len(data_array) % 8 != 0):
         print("QAM256:\nError, check data_array length")
-        return 0
+        raise "error"
     else:
-        di = [] # массив комплексных чисел
+        di = []
         for i in range(0, len(data_array), 8):
             b8i = data_array[i]
             b8i1 = data_array[i+1]
